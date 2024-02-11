@@ -1,0 +1,194 @@
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #161616;
+}
+
+/* Slider */
+
+.container {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.slider {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.slider__slide {
+    flex: 0 0 25%;
+    padding: 10px;
+    height: 100%;
+    position: relative;
+    z-index: 997;
+}
+
+.slider__slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0%;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Navigation buttons */
+
+.slider__navigation-buttons span {
+    background-color: rgb(50, 50, 50);
+    opacity: 70%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 40px;
+    height: 60px;
+    z-index: 998;
+}
+
+.navigation-buttons__previous {
+    border-radius: 0 10px 10px 0;
+}
+
+.navigation-buttons__previous::before,
+.navigation-buttons__previous::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    left: 8px;
+}
+
+.navigation-buttons__previous::before {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.navigation-buttons__previous::after {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.navigation-buttons__next {
+    border-radius: 10px 0 0 10px;
+    right: 0;
+}
+
+.navigation-buttons__next::before,
+.navigation-buttons__next::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    right: 8px;
+}
+
+.navigation-buttons__next::before {
+    transform: translateY(-6px) rotate(-135deg);
+}
+
+.navigation-buttons__next::after {
+    transform: translateY(6px) rotate(135deg);
+}
+
+/* Popup */
+
+.popup__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+}
+
+.popup__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.popup__close-btn::before,
+.popup__close-btn::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.popup__close-btn:hover::before,
+.popup__close-btn:hover::after {
+    background-color: white;
+}
+
+.popup__close-btn::before {
+    transform: translateX(-10px) rotate(-45deg);
+}
+
+.popup__close-btn::after {
+    transform: translateX(-10px) rotate(45deg);
+}
+
+.popup__content {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.popup__paginator {
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    transform: translateX(-50%);
+}
+
+.popup__paginator .dot {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: white;
+}
